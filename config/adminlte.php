@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '', //Estilos del contenedor,
     'classes_content_header' => '', //Estilos del título del contenedor,
     'classes_content' => '', //Estilos del contenedor donde van los datos (debajo),
-    'classes_sidebar' => 'sidebar-dark-danger elevation-4', //Estilos del sidebar (fondo, color de enlace activo, etc)
+    'classes_sidebar' => 'sidebar-dark-primary elevation-4', //Estilos del sidebar (fondo, color de enlace activo, etc)
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light', //Estilos del navbar
     'classes_topnav_nav' => 'navbar-expand',
@@ -210,15 +210,15 @@ return [
     |
     */
 
-    'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
+    'sidebar_mini' => true, //Ocultar sidebar completo o mostrar un sidebar mini
+    'sidebar_collapse' => false, //Ocultar sidebar por defecto
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 300,
+    'sidebar_nav_animation_speed' => 300, //Tiempo que demora en la animacion del acordeón
 
     /*
     |--------------------------------------------------------------------------
@@ -232,11 +232,11 @@ return [
     |
     */
 
-    'right_sidebar' => false,
-    'right_sidebar_icon' => 'fas fa-cogs',
-    'right_sidebar_theme' => 'dark',
-    'right_sidebar_slide' => true,
-    'right_sidebar_push' => true,
+    'right_sidebar' => true, //Añadir menú lateral en la derecha
+    'right_sidebar_icon' => 'fas fa-cogs', //Cambiar icono menú derecho
+    'right_sidebar_theme' => 'dark', //Cambiar estilo menu derecho
+    'right_sidebar_slide' => true, //Cambiar transición desplazamiento menú derecho
+    'right_sidebar_push' => true, //Desplaza el contenido de la pagina al abrir el menú o lo pone por encima
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
     'right_sidebar_scrollbar_auto_hide' => 'l',
 
@@ -253,12 +253,12 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
-    'logout_url' => 'logout',
-    'login_url' => 'login',
-    'register_url' => 'register',
-    'password_reset_url' => 'password/reset',
-    'password_email_url' => 'password/email',
+    'dashboard_url' => 'admin', //Ruta inicio al pulsar en el logo
+    'logout_url' => 'logout', //Ruta logout
+    'login_url' => 'login', //Ruta login
+    'register_url' => 'register', //Ruta registro
+    'password_reset_url' => 'password/reset', //Ruta resetar password
+    'password_email_url' => 'password/email', //Ruta password email
     'profile_url' => false,
 
     /*
@@ -293,8 +293,17 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'text'         => 'Búsqueda',
+            'url' => '#', //añadir url
+            'method' => 'post', //Añadir método de request
+            'topnav' => true,
+        ],
+        //Añadir links
+        [
+            'text' => 'Link 1',
+            'url' => '#',
+            //'route' => 'home'
+            'topnav_user' => true //Elegir dónde va a ir el link (navbar, sidebar, menu de usuario, etc)
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -309,11 +318,33 @@ return [
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'can'  => 'manage-blog', //Verifica si el usuario tiene el permiso para acceder aquí
         ],
         [
             'text' => 'Dashboard',
-            'route'  => 'home',
+            'url'  => '#',
+            'icon' => 'fas fa-home', //Cambia el icono que tendrá el enlace
+            'label' => 'Nuevo', //Añadir texto al enlace
+            'label_color' => 'success', //Color del text añadido al enlace
+            'icon_color' => 'danger'
+        ],
+        [//Añadir submenus
+            'text' => 'Multilevel',
+            'submenu' => [
+                [
+                    'text' => 'Nivel 1',
+                    'submenu' => [
+                        [
+                            'text' => 'Nivel 2',
+                            'url' => '#'
+                        ],
+                    ],
+                ],
+                [
+                    'text' => 'Nivel 1',
+                    'route' => 'home'
+                ],
+            ],
         ],
         [
             'text'        => 'pages',
@@ -322,7 +353,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Configuración de cuenta'], //Añadir cabecera
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
