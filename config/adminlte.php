@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Lorem Ipsum | ',
     'title_postfix' => '',
 
     /*
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Lorem Ipsum</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Lorem Ipsum Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -129,12 +129,12 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_enabled' => true, //Activar desplegable usuario
+    'usermenu_header' => true, //Activar cabecera desplegable
+    'usermenu_header_class' => 'bg-primary', //Color cabecera
+    'usermenu_image' => true, //Imagen recogida en función User adminlte_image
+    'usermenu_desc' => true, //Descripción recogida en función User adminlte_desc
+    'usermenu_profile_url' => true, //URL al perfil obtenida en la función adminlte_profile_url
 
     /*
     |--------------------------------------------------------------------------
@@ -148,10 +148,10 @@ return [
     |
     */
 
-    'layout_topnav' => null,
-    'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_topnav' => false, //Cambiar sidebar arriba
+    'layout_boxed' => null, //Te cambia el contenido de la pantalla a un ancho fijo
+    'layout_fixed_sidebar' => true, //Sidebar queda fijo con un scroll
+    'layout_fixed_navbar' => true, //Navbar fija
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -167,12 +167,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
-    'classes_auth_header' => '',
-    'classes_auth_body' => '',
-    'classes_auth_footer' => '',
+    'classes_auth_card' => 'card-outline card-primary', //Color barra superior login
+    'classes_auth_header' => 'd-none', //Texto de cabecera del login
+    'classes_auth_body' => '', //Inputs del formulario
+    'classes_auth_footer' => '', //Footer (olvidar contraseña etc),
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-primary', //Botón acceso
 
     /*
     |--------------------------------------------------------------------------
@@ -186,15 +186,15 @@ return [
     |
     */
 
-    'classes_body' => '',
-    'classes_brand' => '',
-    'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
-    'classes_content_header' => '',
-    'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_body' => '', //Estilos del body,
+    'classes_brand' => 'bg-light', //Estilos del logo,
+    'classes_brand_text' => '', //Estilos al nombre de la app,
+    'classes_content_wrapper' => '', //Estilos del contenedor,
+    'classes_content_header' => '', //Estilos del título del contenedor,
+    'classes_content' => '', //Estilos del contenedor donde van los datos (debajo),
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4', //Estilos del sidebar (fondo, color de enlace activo, etc)
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-white navbar-light', //Estilos del navbar
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -310,6 +310,10 @@ return [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+        ],
+        [
+            'text' => 'Dashboard',
+            'route'  => 'home',
         ],
         [
             'text'        => 'pages',
