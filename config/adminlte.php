@@ -273,6 +273,7 @@ return [
     |
     */
 
+    //Si usamos esto no haría caso a los plugins y lo compilaría todo con app.css y app.js
     'enabled_laravel_mix' => false,
     'laravel_mix_css_path' => 'css/app.css',
     'laravel_mix_js_path' => 'js/app.js',
@@ -455,8 +456,11 @@ return [
     */
 
     'plugins' => [
+        //Plugin
         'Datatables' => [
+            //Activar el plugin para usarlo en todas las páginas
             'active' => false,
+            //Archivos para el plugin
             'files' => [
                 [
                     'type' => 'js',
@@ -505,8 +509,11 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    //'asset' => false,
+                    //'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    //Usar un paquete descargado en vez de usar un cdn
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.min.js'
                 ],
             ],
         ],
@@ -525,6 +532,12 @@ return [
                 ],
             ],
         ],
+        /*
+            Para añadir más plugins se puede añadir a mano o instalandolos con consola con
+            php artisan adminlte:plugins install
+            php artisan adminlte:plugins install --plugin=lorem --plugin=iptsum
+            Se instalan en la carpeta public/vendor
+        */
     ],
 
     /*

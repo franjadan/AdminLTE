@@ -2,6 +2,8 @@
 
 @section('title', 'Inicio')
 
+@section('plugins.Sweetalert2', true) <!-- Añadido plugin para usarlo en esta página -->
+
 @section('content_header')
     <h1>Tablero</h1>
 @stop
@@ -67,5 +69,12 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        //Añadir código necesario para utilizar el plugin
+        Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+        );
+    </script>
 @stop
